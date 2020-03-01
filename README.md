@@ -2,11 +2,14 @@ SoluCX Full-Stack skills test - 2020-01J
 _________________________________________
 Drones - REST API
 
-• List:   GET     /drones
+• List:   GET   /drones
 • Detail: GET   /drones/{id}
 • Update: PUT   /drones/{id}
 • Delete: DEL   /drones/{id}
-• Create: POST  /drones/{id}
+• Create: POST  /drones
+
+Default API path dev: http://localhost:3000/api/v1
+Default API path prod: http://drone-api.heroku/api/v1
 
 Fields of drone table:
 {
@@ -36,9 +39,6 @@ Example of get http://localhost:3000/api/v1/drone/1
   "fly": 94
 }
 
-Default API path dev: http://localhost:3000/api/v1
-Default API path prod: http://drone-api.heroku/api/v1
-
 
 ## Tech
 - Node v10.15.3
@@ -60,6 +60,12 @@ git clone https://github.com/rennanrr/api-drones.git
 You have to compile and install node in your machine
 ```
 npm install 
+```
+
+## Run API
+Run node in your machine
+```
+npm start
 ```
 
 ## Migrations
