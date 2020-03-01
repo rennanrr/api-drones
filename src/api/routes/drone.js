@@ -20,7 +20,7 @@ const router = express.Router();
     .put(Ctrl.update)
 
     // DELETE /api/v1/drones/:id - Delete drone
-    .del(Ctrl.delete)
+    .delete(Ctrl.delete)
 
     // POST /api/v1/drones/:id - Create new drone
     .post(Ctrl.create);

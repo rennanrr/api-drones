@@ -3,7 +3,7 @@
  * @description Class responsible for saving Drone into the database
  */
 
-import Model from '../models/user';
+import Model from '../models/drone';
 import { Op } from  'sequelize';
 
 class DroneRepository {
