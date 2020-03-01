@@ -1,0 +1,1 @@
+//Arquivo criado para guardar constantes
