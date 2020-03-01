@@ -1,6 +1,43 @@
+SoluCX Full-Stack skills test - 2020-01J
+_________________________________________
 Drones - REST API
 
-SoluCX Full-Stack skills test
+• List:   GET     /drones
+• Detail: GET   /drones/{id}
+• Update: PUT   /drones/{id}
+• Delete: DEL   /drones/{id}
+• Create: POST  /drones/{id}
+
+Fields of drone table:
+{
+  id: INTEGER,
+  image: STRING,
+  name: STRING,
+  address : STRING,
+  battery : INTEGER,
+  max_speed : FLOAT,
+  average_speed : FLOAT,
+  status : STRING,
+  fly : INTEGER,
+  createdAt : DATE,
+  updatedAt : DATE  
+}
+
+Example of get http://localhost:3000/api/v1/drone/1
+{
+  "id": 1,
+  "image": "https://robohash.org/verovoluptatequia.jpg", 
+  "name": "Suzann",
+  "address": "955 Springview Junction",
+  "battery": 90,
+  "max_speed": 3.8, 
+  "average_speed": 11.6, 
+  "status": "failed", 
+  "fly": 94
+}
+
+Default API path dev: http://localhost:3000/api/v1
+Default API path prod: http://drone-api.heroku/api/v1
 
 
 ## Tech
