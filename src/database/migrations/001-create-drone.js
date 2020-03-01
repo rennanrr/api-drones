@@ -20,14 +20,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       battery: {
-        allowNull: false,
         type: Sequelize.INTEGER
       },
       max_speed: {
         type: Sequelize.FLOAT
       },
       average_speed: {
-        allowNull: false,
         type: Sequelize.FLOAT
       },
       status: {

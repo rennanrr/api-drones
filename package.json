@@ -1,12 +1,12 @@
 {
-  "name": "lagreca-engenharia-api",
+  "name": "drone-api",
   "version": "1.0.0",
   "description": "Express & Sequelize restful api.",
   "main": "src/server.js",
   "author": "Rennan Ribas <rennanrr@hotmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rennanrr/lagreca-engenharia-api.git"
+    "url": "https://github.com/rennanrr/api-drones.git"
   },
   "license": "MIT",
   "private": true,

@@ -8,9 +8,13 @@ import Ctrl from '../controllers/drone';
 
 const router = express.Router();
 
-  // GET /api/v1/drones- List drones
+  
   router.route('/drones')
-    .get(Ctrl.list);
+    // GET /api/v1/drones- List drones
+    .get(Ctrl.list)
+
+    // POST /api/v1/drones - Create new drone
+    .post(Ctrl.create);
 
   router.route('/drones/:id')
     // GET /api/v1/drones/:id - Detail drone
@@ -20,9 +24,6 @@ const router = express.Router();
     .put(Ctrl.update)
 
     // DELETE /api/v1/drones/:id - Delete drone
-    .delete(Ctrl.delete)
-
-    // POST /api/v1/drones/:id - Create new drone
-    .post(Ctrl.create);
+    .delete(Ctrl.delete);
 
 export default router;

@@ -27,6 +27,15 @@ class DroneService {
   async create(drone) {
     return Repo.create(drone);
   }
+
+  isValid(drone) {
+    let errorFields;
+    if(isNaN(drone.name) && drone.name.trim() !== '') errorFields = 'name|';
+    if(isNaN(drone.address) && drone.address.trim() !== '') errorFields += 'address';
+    if(isNaN(drone.status) && drone.status.trim() !== '') errorFields += 'status';
+
+    return errorFields;
+  }
 }
 
 export default new DroneService();

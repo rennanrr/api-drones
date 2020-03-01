@@ -2,7 +2,23 @@
 
 - Node v10.15.3
 - Sequelize v4.43.0
-- MySql
+- MySql v8.0.19
+
+
+Make sure that you have Node.js installed on your machine ;)
+(If you do not have, follow the instructions on this link: https://nodejs.org/en/download/)
+
+## Files node.js
+Clone this git repositorie 
+```
+git clone https://github.com/rennanrr/api-drones.git
+```
+
+## Node_modules
+You have to compile and install node in your machine
+```
+npm install 
+```
 
 ## Migrations
 The tables skeletons are already set in the folder src/api/models and its migrations in src/api/migrations

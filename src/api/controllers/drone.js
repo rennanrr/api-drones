@@ -59,9 +59,14 @@ class DroneCtrl {
 
   async create(req, res) {
     try {
-      const saved = await Service.create(req.body);
+      const validate = Service.isValid(req.body);
+      if (validate) {
+        const saved = await Service.create(req.body);
+        res.status(200).json(saved);
+      }
+      else
+        res.status(304).json(validate);
 
-      res.status(200).json(saved);
     } catch (err) {
       console.error(err);
       res.sendStatus(401);
