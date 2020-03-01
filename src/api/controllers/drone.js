@@ -34,7 +34,13 @@ class DroneCtrl {
     const id = req.params.id;
 
     try {
-      const updated = await Service.update(id, req.body);
+      const validate = Service.isValid(req.body);
+      if (validate) {
+        const updated = await Service.update(id, req.body);
+        res.status(200).json(updated);
+      }
+      else
+        res.status(304).json(validate);
 
       res.status(200).json(updated);
     } catch (err) {
