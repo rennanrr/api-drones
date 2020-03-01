@@ -1,7 +1,12 @@
-## Tech
+Drones - REST API
 
+SoluCX Full-Stack skills test
+
+
+## Tech
 - Node v10.15.3
 - Sequelize v4.43.0
+- Express v4.16.4
 - MySql v8.0.19
 
 
@@ -34,13 +39,13 @@ Run the command below to migrate your models to your database
 NODE_ENV=dev node_modules/.bin/sequelize db:migrate
 ```
 
-### Insert data into your database
+### Insert seeders
 Run the command below to start your database with some pre-defined data
 ```
 NODE_ENV=dev node_modules/.bin/sequelize db:seed:all
 ```
 
-### Mistakes happens :)
+### Mistakes happens :D
 If you ran any command wrong, do not freak out. You can revert your migrations with the following command
 ```
 NODE_ENV=dev node_modules/.bin/sequelize db:migrate:undo
@@ -49,7 +54,8 @@ NODE_ENV=dev node_modules/.bin/sequelize db:migrate:undo
 You can also remove it all
 ```
 NODE_ENV=dev node_modules/.bin/sequelize db:migrate:undo:all
-
 ```
 
-This command can be run several times until revert the last table created.
+
+##Developed by Rennan Ribas.
+
