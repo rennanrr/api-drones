@@ -16,6 +16,7 @@
     "@babel/node": "^7.6.1",
     "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
+    "@hapi/joi": "^17.1.0",
     "amqplib": "^0.5.3",
     "axios": "^0.18.0",
     "babel-preset-latest-node": "^3.2.1",

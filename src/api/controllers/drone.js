@@ -34,15 +34,13 @@ class DroneCtrl {
     const id = req.params.id;
 
     try {
-      const validate = Service.isValid(req.body);
-      if (validate) {
+      const notValidate = Service.isNotValid(req.body);
+      if (!notValidate) {
         const updated = await Service.update(id, req.body);
         res.status(200).json(updated);
       }
       else
-        res.status(304).json(validate);
-
-      res.status(200).json(updated);
+        res.status(304).json(notValidate);
     } catch (err) {
       console.error(err);
       res.sendStatus(401);
@@ -65,13 +63,13 @@ class DroneCtrl {
 
   async create(req, res) {
     try {
-      const validate = Service.isValid(req.body);
-      if (validate) {
+      const errors = await Service.isNotValid(req.body);
+      if (!errors) {
         const saved = await Service.create(req.body);
         res.status(200).json(saved);
       }
       else
-        res.status(304).json(validate);
+        res.status(300).json(errors);
 
     } catch (err) {
       console.error(err);
