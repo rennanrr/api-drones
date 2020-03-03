@@ -5,14 +5,34 @@
 
 import Model from '../models/drone';
 import { Op } from  'sequelize';
+import sequelize from 'sequelize';
 
 class DroneRepository {
  
   /**
   * List all drones
   */
-  async list() {
-    return Model.findAll({});      
+  async list(query) {
+    if(query.text) 
+      return Model.findAll({
+        where: {
+          [Op.or]: [
+            { name: { [Op.like]: '%'+ query.text +'%' } },
+            { address: { [Op.like]: '%'+ query.text +'%' } },
+            sequelize.where(
+              sequelize.cast(sequelize.col('Drone.max_speed'), 'char'),
+                {[Op.like]: `%${query.text}%`},
+            ),
+            sequelize.where(
+              sequelize.cast(sequelize.col('Drone.average_speed'), 'char'),
+                {[Op.like]: `%${query.text}%`},
+            ),
+            { status: { [Op.like]: '%'+ query.text +'%' } }
+          ]
+        }
+      }); 
+    else
+      return Model.findAll(); 
   }
 
   /**
