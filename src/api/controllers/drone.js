@@ -10,6 +10,7 @@ class DroneCtrl {
 
   async list(req, res) {
     try {
+      console.log(req.query);
       const drones = await Service.list(req.query);
 
       res.status(200).json(drones);

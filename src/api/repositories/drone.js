@@ -12,27 +12,86 @@ class DroneRepository {
   /**
   * List all drones
   */
-  async list(query) {
-    if(query.text) 
-      return Model.findAll({
+  async list(query, paginate) {
+    let count;
+    let list;
+
+    if (query.text) {
+      count = await Model.count({
         where: {
           [Op.or]: [
-            { name: { [Op.like]: '%'+ query.text +'%' } },
-            { address: { [Op.like]: '%'+ query.text +'%' } },
+            { 
+              name: { [Op.like]: '%'+ query.text +'%' } 
+            },
+            { 
+              address: { [Op.like]: '%'+ query.text +'%' } 
+            },
             sequelize.where(
-              sequelize.cast(sequelize.col('Drone.max_speed'), 'char'),
-                {[Op.like]: `%${query.text}%`},
+              sequelize.cast(
+                sequelize.col('Drone.max_speed'), 'char'),
+                {
+                  [Op.like]: `%${query.text}%`
+                },
             ),
             sequelize.where(
-              sequelize.cast(sequelize.col('Drone.average_speed'), 'char'),
-                {[Op.like]: `%${query.text}%`},
+              sequelize.cast(
+                sequelize.col('Drone.average_speed'), 'char'),
+                {
+                  [Op.like]: `%${query.text}%`
+                },
             ),
-            { status: { [Op.like]: '%'+ query.text +'%' } }
+            { 
+              status: { [Op.like]: '%'+ query.text +'%' } 
+            }
           ]
         }
-      }); 
-    else
-      return Model.findAll(); 
+      });
+      list = await Model.findAll(
+        Object.assign(
+          paginate,
+          {
+          where: {
+            [Op.or]: [
+              { 
+                name: { [Op.like]: '%'+ query.text +'%' } 
+              },
+              { 
+                address: { [Op.like]: '%'+ query.text +'%' } 
+              },
+              sequelize.where(
+                sequelize.cast(
+                  sequelize.col('Drone.max_speed'), 'char'),
+                  {
+                    [Op.like]: `%${query.text}%`
+                  },
+              ),
+              sequelize.where(
+                sequelize.cast(
+                  sequelize.col('Drone.average_speed'), 'char'),
+                  {
+                    [Op.like]: `%${query.text}%`
+                  },
+              ),
+              { 
+                status: { [Op.like]: '%'+ query.text +'%' } 
+              }
+            ]
+          }
+        }
+      )); 
+    }
+    else {
+      count = await Model.count();
+      list = await Model.findAll(
+        Object.assign(
+          paginate,
+          {
+            where: {}, // conditions
+          }, 
+        )
+      ); 
+    }
+    return { list, count };
   }
 
   /**
