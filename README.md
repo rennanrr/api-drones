@@ -9,7 +9,7 @@ Drones - REST API
 • Create: POST  /drones
 
 Default API path dev: http://localhost:3000/api/v1
-Default API path prod: http://rennan-drone-api.herokuapp/api/v1
+Default API path prod: https://rennan-drone-api.herokuapp.com/api/v1
 
 Fields of drone table:
 {
@@ -26,7 +26,7 @@ Fields of drone table:
   updatedAt : DATE  
 }
 
-Example of get http://localhost:3000/api/v1/drones/1 or http://rennan-drone-api.herokuapp/api/v1
+Example of get http://localhost:3000/api/v1/drones/1 or https://rennan-drone-api.herokuapp.com/api/v1/drones/1
 {
   "id": 1,
   "image": "https://robohash.org/verovoluptatequia.jpg", 
