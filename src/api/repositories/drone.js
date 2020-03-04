@@ -15,6 +15,8 @@ class DroneRepository {
   async list(query, paginate) {
     let count;
     let list;
+    console.log(paginate);
+    console.log('paginate');
 
     if (query.text) {
       count = await Model.count({

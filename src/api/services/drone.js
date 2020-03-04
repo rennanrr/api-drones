@@ -62,7 +62,7 @@ class DroneService {
   */
   async paginate (page, pageSize) {
     const limit = parseInt(pageSize || 10);
-    const offset = parseInt(((page || 1) * limit) - limit + 1);
+    const offset = parseInt((page || 1) * limit) - limit;
 
     return { offset, limit, };
   };
