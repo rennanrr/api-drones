@@ -1,12 +1,3 @@
-/*var http = require('http'),
-    app = require('./config/express'),
-    config = require('./config/config.js');
-
-http.createServer(app).listen(config.apiPort, function() {
-    console.log('Servidor escutando na porta: ' + this.address().port);
-}); */
-
-//const express = require('express');
 import express from 'express';
 import config from './config/config';
 import expressConfig from './config/express';
