@@ -13,7 +13,7 @@ const defaultConfig = {
  * @type {{prod: {}, dev: {}, test: {apiPort: number}}}
  */
 const envConfig = {
-  prod: { apiPort: process.env.PORT},
+  prod: { apiPort: process.env.PORT },
   qas: {},
   dev: {},
   test: {

@@ -37,10 +37,9 @@ class DroneService {
   async isNotValid(drone) {
     let errors = {
       name: Joi.string().min(2).max(20).required().validate(drone.name),
-      address: Joi.string().min(2).max(20).required().validate(drone.address),
+      address: Joi.string().min(2).max(50).required().validate(drone.address),
       status: Joi.string().min(2).max(20).required().validate(drone.status)
     };
-    console.log(errors);
     if(errors.name.error || errors.address.error || errors.status.error)
       return errors;
     else

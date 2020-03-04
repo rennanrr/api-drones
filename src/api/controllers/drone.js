@@ -31,16 +31,16 @@ class DroneCtrl {
   }
 
   async update(req, res) {
-    const id = req.params.id;
-
     try {
-      const notValidate = Service.isNotValid(req.body);
-      if (!notValidate) {
-        const updated = await Service.update(id, req.body);
+      const notValid = await Service.isNotValid(req.body);
+      console.log(notValid);
+      if (!notValid) {
+        console.log('entrou aqui');
+        const updated = await Service.update(req.params.id, req.body);
         res.status(200).json(updated);
       }
       else
-        res.status(304).json(notValidate);
+        res.status(304).json(notValid);
     } catch (err) {
       console.error(err);
       res.sendStatus(401);
@@ -48,9 +48,8 @@ class DroneCtrl {
   }
 
   async delete(req, res) {
-    const id = req.params.id;
     try {
-      const deleted = await Service.delete(id);
+      const deleted = await Service.delete(req.params.id);
       if (deleted) {
         res.status(200).json(deleted);
       } else {
@@ -63,13 +62,13 @@ class DroneCtrl {
 
   async create(req, res) {
     try {
-      const errors = await Service.isNotValid(req.body);
-      if (!errors) {
+      const notValid = await Service.isNotValid(req.body);
+      if (!notValid) {
         const saved = await Service.create(req.body);
         res.status(200).json(saved);
       }
       else
-        res.status(300).json(errors);
+        res.status(300).json(notValid);
 
     } catch (err) {
       console.error(err);
